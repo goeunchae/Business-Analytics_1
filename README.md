@@ -1,10 +1,10 @@
 # Business-Analytics_1
 
-Regression Dataset
-California House Price
+Regression Dataset\n
+California House Price\n
 https://www.kaggle.com/datasets/shibumohapatra/house-price
 
-Classification Dataset
-Wine Quality Dataset
+Classification Dataset\n
+Wine Quality Dataset\n
 https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
 
