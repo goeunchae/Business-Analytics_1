@@ -58,11 +58,13 @@ Conduct genetic algorithm with classification dataset (wine quality dataset). Co
 ### GA Result 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_wine.PNG)
 
-With genetic algorithm, we found the best variable set [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1]. According to the result, the best varialbes for wine quality classification are volatile acidity, residual sugar, chlorides, total sulfur dioxide, pH, alcohol. 
+With genetic algorithm, we found the best variable set [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1]. According to the result, the best varialbes for wine quality classification are volatile acidity, residual sugar, chlorides, total sulfur dioxide, pH, alcohol. [1, 3, 4, 6, 8, 10]
 
 ### Random Forest Importance Score 
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_feature_importance.png)
 
-
+According to above figure, feature 1, feature 6, feature 10 are remarkably important -> volatile acidity, total sulfur dioxide, alcohol. 
+Selected variables with GA also have high feature importances in random forest classificaiton. 
 
 
 ## 1-3 Principal Component Analysis (PCA) 
