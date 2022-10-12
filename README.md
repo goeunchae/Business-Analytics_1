@@ -99,7 +99,7 @@ Plotting PCA with sklearn. Since it is also hard to find features, we can say th
 
 ## 1-4 Locally Linear Embedding (LLE) 
 
-Conduct LLE wth classification dataset (wine quality dataset).
+Conduct LLE wth classification dataset (wine quality dataset) with various n_neighbors.
 
 ### LLE
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_LLE_results.png)
@@ -107,7 +107,7 @@ Conduct LLE wth classification dataset (wine quality dataset).
 
 ## 1-4 t-distributed Stochastic Neighbor Embedding (t-SNE)  
 
-Conduct t-SNE wth classification dataset (wine quality dataset).
+Conduct t-SNE wth classification dataset (wine quality dataset) with variosu n_neighbors.
 
 ### t-SNE
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results.png)
