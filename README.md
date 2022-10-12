@@ -1,4 +1,11 @@
 # Business-Analytics_1, Dimensionality Reduction 
+## Tutorial Purposes
+
+**1.** Apply various algorithms of dimensionality reduction to real-world dataset. 
+
+**2.** Understand how the algorithm works while implementing it.
+
+**3.** Explain about the result from algorithms with the knowledge of data 
 
 ## Dataset 
 ### Regression Dataset
