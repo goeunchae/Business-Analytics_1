@@ -64,12 +64,14 @@ With genetic algorithm, we found the best variable set [0, 1, 0, 1, 1, 0, 1, 0, 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_feature_importance.png)
 
 According to above figure, feature 1, feature 6, feature 10 are remarkably important -> volatile acidity, total sulfur dioxide, alcohol. 
-Selected variables with GA also have high feature importances in random forest classificaiton. 
+Selected variables with GA also have high feature importances in random forest classificaiton. With this result, we can say that GA worked well for selecting variables. 
 
 
 ## 1-3 Principal Component Analysis (PCA) 
 ### Explained Variance 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_percentage_of_explained_variance.png)
+
+
 
 ### PCA 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_pca_results.png)
