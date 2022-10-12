@@ -51,6 +51,7 @@ def plot_scatter(pc1, pc2):
     ax.axhline(y=0, color="grey", linestyle="--")
     ax.axvline(x=0, color="grey", linestyle="--")
     
+    plt.clf()
     plt.grid()
     plt.axis([-4, 4, -3, 3])
     plt.show()
@@ -76,14 +77,25 @@ eig_values, eig_vectors = np.linalg.eig(B)
 
 mds_axis = eig_vectors[:,0]
 proj_XonMDS = np.linalg.norm(mds_axis.dot(X)/np.linalg.norm(mds_axis))*mds_axis/np.linalg.norm(mds_axis)
-print('For q = 1 Project of X vector on Y ∈ R(3*1) is:\n', proj_XonMDS)
+#print('For q = 1 Project of X vector on Y ∈ R(3*1) is:\n', proj_XonMDS)
 
-# with sklearn
+
+mds_axis = eig_vectors[:,1]
+proi_XonMDS = np.linalg.norm(mds_axis.dot(X)/np.linalg.norm(mds_axis))*mds_axis/np.linalg.norm(mds_axis)
+#print('For q = 1 Project of X vector on Y ∈ R(3*1) is:\n', proi_XonMDS)
+plt.clf()
+plt.scatter(proi_XonMDS,proj_XonMDS)
+plt.xlabel('Coordinate 1')
+plt.ylabel('Coordinate 2')
+plt.savefig('1_3_MDS')
+
+# # with sklearn
 from sklearn.manifold import MDS
 
 mds = MDS(random_state=0)
 scaled_df = mds.fit_transform(X)
 #create scatterplot
+plt.clf()
 plt.scatter(scaled_df[:,0], scaled_df[:,1])
 
 #add axis labels
