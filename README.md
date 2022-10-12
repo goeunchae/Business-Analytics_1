@@ -49,13 +49,21 @@ Generally, about 9-10 variables are selected for regression and the most importa
 
 ## 1-2 Genetic Algorithm
 
+Conduct genetic algorithm with classification dataset (wine quality dataset). Compare the result with feature importance based on random forest. 
 
 
-### GA Raw Result with housing dataset 
+### GA Raw Result 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_results.PNG)
 
-### GA Raw Result with wine dataset
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_results.PNG)
+### GA Result 
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_wine.PNG)
+
+With genetic algorithm, we found the best variable set [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1]. According to the result, the best varialbes for wine quality classification are volatile acidity, residual sugar, chlorides, total sulfur dioxide, pH, alcohol. 
+
+### Random Forest Importance Score 
+
+
+
 
 ## 1-3 Principal Component Analysis (PCA) 
 ### Explained Variance 
