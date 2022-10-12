@@ -66,21 +66,32 @@ With genetic algorithm, we found the best variable set [0, 1, 0, 1, 1, 0, 1, 0, 
 According to above figure, feature 1, feature 6, feature 10 are remarkably important -> volatile acidity, total sulfur dioxide, alcohol. 
 Selected variables with GA also have high feature importances in random forest classificaiton. With this result, we can say that GA worked well for selecting variables. 
 
-
 ## 1-3 Principal Component Analysis (PCA) 
+
+Conduct PCA with classification dataset (wine quality dataset) with and without sklearn. Wine quality can be classified to 6 classes (3, 4 ,5 ,6 ,7, 8).
+
+
 ### Explained Variance 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_percentage_of_explained_variance.png)
 
 
+Percentage of explained variance is decreasing until 5 dimensions and increasing after that. 
+The cumulative explained variance is higher than 60% at 4 dimensions. 
 
 ### PCA 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_pca_results.png)
 
+Plotting PCA without sklearn.It is hard to find some features by classes. However, class 5, which marked as green, tend to be concentrated in the lower middle. 
+
+
 ### PCA with sklearn  
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_pca_sklearn.png)
 
+Plotting PCA with sklearn. Since it is also hard to find features, we can say this data (wine quality dataset) has few characteristics between groups. In addition, PCA without sklearn is well designed because the result is quite close to the above one. 
 
 ## 1-3 Multi-Dimensional Scaling (MDS) 
+
+
 ### MDS
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_MDS_sklearn.png)
 
