@@ -101,15 +101,27 @@ Plotting PCA with sklearn. Since it is also hard to find features, we can say th
 Conduct MDS with classification dataset (wine quality dataset) with and without sklearn. 
 
 ### MDS
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_MDS.png)
+
+Plotting MDS without sklearn. 
+
+### MDS with sklearn
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_MDS_sklearn.png)
 
-
+Plotting MDS with sklearn. 
 
 ## 1-4 Isometric Feature Mapping (ISOMAP) 
+
+Conduct ISOMAP with classification dataset (wine quality dataset) with and without sklearn. 
+
+
 ### ISOMAP
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_isomap_results.png)
 
+Plotting ISOMAP without sklearn. 
+
 ### ISOMAP with sklearn
+
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_isomap_results_with_sklearn.png)
 
 ## 1-4 Locally Linear Embedding (LLE) 
