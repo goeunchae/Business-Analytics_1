@@ -1,12 +1,14 @@
-# Business-Analytics_1
+# Business-Analytics_1, Dimensionality Reduction 
 
-Regression Dataset
+## Dataset 
+### Regression Dataset
 
 California House Price
 
 https://www.kaggle.com/datasets/shibumohapatra/house-price
 
-Classification Dataset
+
+### Classification Dataset
 
 Wine Quality Dataset
 
