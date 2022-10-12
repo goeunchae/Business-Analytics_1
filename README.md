@@ -22,7 +22,7 @@ Data Link: https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
 
 ## 1-2 Supervised Variable Selection 
 
-Conducting supervised variable selection in 3-way with regression dataset (california house price). 
+Conduct supervised variable selection in 3-way with regression dataset (California house price). 
 Overall R-squared is not that great but we still see the difference between among seleciton methods.
 
 
@@ -44,10 +44,17 @@ We got 'ocean_<1H OCEAN', 'ocean_INLAND', 'ocean_ISLAND', 'ocean_NEAR BAY', 'oce
 
 We got 'ocean_<1H OCEAN', 'population', 'total_rooms', 'total_bedrooms', 'housing_median_age', 'households', 'ocean_INLAND', 'longitude', 'latitude' as our final variables. Selected variables are similar to those from forward selection and backward elimination. It also seems ocean vicinity, population, number of rooms are important variables to measure housing median price. 
 
-Generally, about 9-10 variables are selected for regression. 
+Generally, about 9-10 variables are selected for regression and the most importance variables is 'ocean_<1H OCEAN'. It means closer to the ocean, higher the housing price in California which is reasonable. 
+
 
 ## 1-2 Genetic Algorithm
-### GA Raw Result 
+
+
+
+### GA Raw Result with housing dataset 
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_results.PNG)
+
+### GA Raw Result with wine dataset
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_results.PNG)
 
 ## 1-3 Principal Component Analysis (PCA) 
