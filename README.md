@@ -98,9 +98,12 @@ Plotting PCA with sklearn. Since it is also hard to find features, we can say th
 
 ## 1-3 Multi-Dimensional Scaling (MDS) 
 
+Conduct MDS with classification dataset (wine quality dataset) with and without sklearn. 
 
 ### MDS
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_MDS_sklearn.png)
+
+
 
 ## 1-4 Isometric Feature Mapping (ISOMAP) 
 ### ISOMAP
