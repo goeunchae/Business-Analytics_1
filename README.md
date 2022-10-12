@@ -22,16 +22,29 @@ Data Link: https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
 
 ## 1-2 Supervised Variable Selection 
 
-Conducting supervised variable selection in 3-way with regression dataset (california house price) 
+Conducting supervised variable selection in 3-way with regression dataset (california house price). 
+Overall R-squared is not that great but we still see the difference between among seleciton methods.
+
 
 ### Forward Selection 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_forward_selection.png)
 
+
+We got 'ocean_<1H OCEAN', 'population', 'total_rooms', 'total_bedrooms', 'housing_median_age', 'households', 'ocean_INLAND', 'longitude', 'latitude' as our final variables. It seems ocean vicinity, population, number of rooms are important variables to measure housing median price. 
+
 ### Backward Elimination
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_backward_elimination.png)
 
+
+We got 'ocean_<1H OCEAN', 'ocean_INLAND', 'ocean_ISLAND', 'ocean_NEAR BAY', 'ocean_NEAR OCEAN', 'longitude', 'latitude', 'total_rooms', 'total_bedrooms', 'population' as our final variables. Variables releated to ocean vicinity are all selected, and population, number of rooms are also importance as forward selection. It also seems ocean vicinity, population, number of rooms are important variables to measure housing median price. 
+
+
 ### Stepwise Selection
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_stepwise_selection.png)
+
+We got 'ocean_<1H OCEAN', 'population', 'total_rooms', 'total_bedrooms', 'housing_median_age', 'households', 'ocean_INLAND', 'longitude', 'latitude' as our final variables. Selected variables are similar to those from forward selection and backward elimination. It also seems ocean vicinity, population, number of rooms are important variables to measure housing median price. 
+
+Generally, about 9-10 variables are selected for regression. 
 
 ## 1-2 Genetic Algorithm
 ### GA Raw Result 
