@@ -96,39 +96,19 @@ Plotting PCA without sklearn.It is hard to find some features by classes. Howeve
 
 Plotting PCA with sklearn. Since it is also hard to find features, we can say this data (wine quality dataset) has few characteristics between groups. In addition, PCA without sklearn is well designed because the result is quite close to the above one. 
 
-## 1-3 Multi-Dimensional Scaling (MDS) 
-
-Conduct MDS with classification dataset (wine quality dataset) with and without sklearn. 
-
-### MDS
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_MDS.png)
-
-Plotting MDS without sklearn. 
-
-### MDS with sklearn
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_MDS_sklearn.png)
-
-Plotting MDS with sklearn. 
-
-## 1-4 Isometric Feature Mapping (ISOMAP) 
-
-Conduct ISOMAP with classification dataset (wine quality dataset) with and without sklearn. 
-
-
-### ISOMAP
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_isomap_results.png)
-
-Plotting ISOMAP without sklearn. 
-
-### ISOMAP with sklearn
-
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_isomap_results_with_sklearn.png)
 
 ## 1-4 Locally Linear Embedding (LLE) 
+
+Conduct LLE wth classification dataset (wine quality dataset).
+
 ### LLE
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_LLE_results.png)
 
+
 ## 1-4 t-distributed Stochastic Neighbor Embedding (t-SNE)  
+
+Conduct t-SNE wth classification dataset (wine quality dataset).
+
 ### t-SNE
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results.png)
 
