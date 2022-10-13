@@ -206,10 +206,10 @@ Hyparparameters are belowed.
 
 hyperparameter|value
 --------------|-----
-number of chromosomes| 50
-population size| 100      
-crossover mechanism:| 0.7 
-mutation rate:| 0.1
+number of chromosomes| 30
+population size| 10      
+crossover mechanism:| 0.8 
+mutation rate:| 0.15
 
 
 GA consists with 5 steps 
@@ -337,6 +337,29 @@ def __update_best_chromosome(
 With genetic algorithm, we found the best variable set [0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1]. According to the result, the best varialbes for wine quality classification are volatile acidity, residual sugar, chlorides, total sulfur dioxide, pH, alcohol. [1, 3, 4, 6, 8, 10]
 
 ### Random Forest Importance Score 
+
+extract importance score from random forest classifier
+
+
+```
+from sklearn.ensemble import RandomForestClassifier
+feature_names = [f"feature {i}" for i in range(X.shape[1])]
+forest = RandomForestClassifier(random_state=0)
+forest.fit(X_train, y_train)
+
+importances = forest.feature_importances_
+std = np.std([tree.feature_importances_ for tree in forest.estimators_], axis=0)
+
+forest_importances = pd.Series(importances, index=feature_names)
+
+fig, ax = plt.subplots()
+forest_importances.plot.bar(yerr=std, ax=ax)
+ax.set_title("Feature importances using MDI")
+ax.set_ylabel("Mean decrease in impurity")
+fig.tight_layout()
+plt.savefig('1_2_feature_importance')
+```
+
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_feature_importance.png)
 
 According to above figure, feature 1, feature 6, feature 10 are remarkably important -> volatile acidity, total sulfur dioxide, alcohol. 
