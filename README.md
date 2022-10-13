@@ -121,5 +121,5 @@ Conduct t-SNE wth classification dataset (wine quality dataset) with various per
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results10.png)
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results20.png)
 
-
+sd
 
