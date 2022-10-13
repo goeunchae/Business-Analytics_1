@@ -221,7 +221,69 @@ GA consists with 5 steps
 
 
 **selection**
+```
+    def __selection(
+            self, population: np.ndarray, population_scores: np.ndarray,
+            best_chromosome_index: int) -> np.ndarray:
+        # Create new population
+        new_population = [population[best_chromosome_index]]
 
+        # Tournament_k chromosome tournament until fill the numpy array
+        while len(new_population) != self.population_size:
+            # Generate tournament_k positions randomly
+            k_chromosomes = np.random.randint(
+                len(population), size=self.tournament_k)
+            # Get the best one of these tournament_k chromosomes
+            best_of_tournament_index = np.argmax(
+                population_scores[k_chromosomes])
+            # Append it to the new population
+            new_population.append(
+                population[k_chromosomes[best_of_tournament_index]])
+
+        return np.array(new_population)
+```
+
+**crossover**
+```
+    def __crossover(self, population: np.ndarray) -> np.ndarray:
+        # Define the number of crosses
+        n_crosses = int(self.crossover_rate * int(self.population_size / 2))
+
+        # Make a copy from current population
+        crossover_population = population.copy()
+
+        # Make n_crosses crosses
+        for i in range(0, n_crosses*2, 2):
+            cut_index = np.random.randint(1, self.X.shape[1])
+            tmp = crossover_population[i, cut_index:].copy()
+            crossover_population[i, cut_index:], crossover_population[i+1,
+                                                                      cut_index:] = crossover_population[i+1, cut_index:], tmp
+            # Avoid null chromosomes
+            if not all(crossover_population[i]):
+                crossover_population[i] = population[i]
+            if not all(crossover_population[i+1]):
+                crossover_population[i+1] = population[i+1]
+
+        return crossover_population
+```
+
+**mutation**
+```
+
+    def __mutation(self, population: np.ndarray) -> np.ndarray:
+        # Define number of mutations to do
+        n_mutations = int(
+            self.mutation_rate * self.population_size * self.X.shape[1])
+
+        # Mutating n_mutations genes
+        for _ in range(n_mutations):
+            chromosome_index = np.random.randint(0, self.population_size)
+            gene_index = np.random.randint(0, self.X.shape[1])
+            population[chromosome_index, gene_index] = 0 if \
+                population[chromosome_index, gene_index] == 1 else 1
+
+        return population
+```
 
 ### GA Raw Result 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_results.PNG)
