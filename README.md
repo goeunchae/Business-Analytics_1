@@ -121,6 +121,6 @@ Conduct t-SNE wth classification dataset (wine quality dataset) with various per
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE10.png)
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE20.png)
 
-We can capture the difference between various perplexity. When perplexity is in [2, 3 ,5], all of them are similar and they take the shape of a circle. Then, as perplexity increases, it generally changes to a shape of V. Finally, we can see that 
+We can capture the difference between various perplexity. When perplexity is in [2, 3 ,5], all of them are similar and they take the shape of a circle. Then, as perplexity increases, it generally changes to a shape of V. At every pereplexity, no speical clusters were formed. 
 However, the optimal perplexity does not exist and also there is no meaning of the distance among clusters in t-SNE.
 
