@@ -222,8 +222,6 @@ GA consists with 5 steps
 
 **selection**
 
-```
-
 
 ### GA Raw Result 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_results.PNG)
