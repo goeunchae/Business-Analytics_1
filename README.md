@@ -34,12 +34,107 @@ Overall R-squared is not that great but we still see the difference between amon
 
 
 ### Forward Selection 
+
+Selecting variables with forward selection with r-squared of linear regression. 
+
+
+```
+# Forward Selection 
+def FC(df):
+    variables = df.columns[:-2].tolist() 
+    
+    y = df['median_house_value'] ## response variable
+    selected_variables = [] 
+    sl_enter = 0.05
+    
+    sv_per_step = [] ## selected variables per step
+    adjusted_r_squared = [] 
+    steps = [] ## 스텝
+    step = 0
+    while len(variables) > 0:
+        remainder = list(set(variables) - set(selected_variables))
+        pval = pd.Series(index=remainder) 
+        
+        for col in remainder: 
+            X = df[selected_variables+[col]]
+            X = sm.add_constant(X)
+            model = sm.OLS(y,X).fit()
+            pval[col] = model.pvalues[col]
+    
+        min_pval = pval.min()
+        if min_pval < sl_enter: 
+            selected_variables.append(pval.idxmin())
+            
+            step += 1
+            steps.append(step)
+            adj_r_squared = sm.OLS(y,sm.add_constant(df[selected_variables])).fit().rsquared_adj
+            adjusted_r_squared.append(adj_r_squared)
+            sv_per_step.append(selected_variables.copy())
+        else:
+            break
+    return selected_variables, steps, adjusted_r_squared, sv_per_step 
+```
+
+
+plotting selected variables at every steps. 
+
+```
+def result_pic(selected_variables, steps, adjusted_r_squared, sv_per_step):
+    fig = plt.figure(figsize=(10,10))
+    fig.set_facecolor('white')
+    
+    font_size = 15
+    plt.xticks(steps,[f'step {s}\n'+'\n'.join(sv_per_step[i]) for i,s in enumerate(steps)], fontsize=12)
+    plt.plot(steps,adjusted_r_squared, marker='o')
+        
+    plt.ylabel('Adjusted R Squared',fontsize=font_size)
+    plt.grid(True)
+    plt.show()
+    print(selected_variables)
+```
+    
+
+
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_forward_selection.png)
 
 
 We got 'ocean_<1H OCEAN', 'population', 'total_rooms', 'total_bedrooms', 'housing_median_age', 'households', 'ocean_INLAND', 'longitude', 'latitude' as our final variables. It seems ocean vicinity, population, number of rooms are important variables to measure housing median price. 
 
 ### Backward Elimination
+
+Selecting variables with backward elimination with r-squared of linear regression. We defined sl_remove very small to prevent a step from not working.  
+
+
+```
+def BE(df):
+    variables = df.columns[:-2].tolist() 
+    
+    y = df['median_house_value'] ## response variable
+    selected_variables = variables ## every variable is chosen at the beginning
+    sl_remove = 5e-50
+    
+    sv_per_step = [] ## selected variables per step
+    adjusted_r_squared = [] 
+    steps = []
+    step = 0
+    while len(selected_variables) > 0:
+        X = sm.add_constant(df[selected_variables])
+        p_vals = sm.OLS(y,X).fit().pvalues[1:] 
+        max_pval = p_vals.max() 
+        if max_pval >= sl_remove:
+            remove_variable = p_vals.idxmax()
+            selected_variables.remove(remove_variable)
+    
+            step += 1
+            steps.append(step)
+            adj_r_squared = sm.OLS(y,sm.add_constant(df[selected_variables])).fit().rsquared_adj
+            adjusted_r_squared.append(adj_r_squared)
+            sv_per_step.append(selected_variables.copy())
+        else:
+            break
+    return selected_variables, steps, adjusted_r_squared, sv_per_step 
+   ```
+
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_backward_elimination.png)
 
 
@@ -47,6 +142,56 @@ We got 'ocean_<1H OCEAN', 'ocean_INLAND', 'ocean_ISLAND', 'ocean_NEAR BAY', 'oce
 
 
 ### Stepwise Selection
+
+
+Selecting variables with stepwise selection with r-squared of linear regression. sl_enter and sl_remove are 0.05. We have no selected variables at first like forward selection, and we also take out variables which affects negatively to r-squared like backward elimination.   
+
+
+```
+def SS(df):
+    variables = df.columns[:-2].tolist() 
+    y = df['median_house_value'] ## response variable
+    selected_variables = [] 
+    sl_enter = 0.05
+    sl_remove = 0.05
+    
+    sv_per_step = [] ## selected variables per step
+    adjusted_r_squared = [] 
+    steps = [] 
+    step = 0
+    while len(variables) > 0:
+        remainder = list(set(variables) - set(selected_variables))
+        pval = pd.Series(index=remainder) 
+        for col in remainder: 
+            X = df[selected_variables+[col]]
+            X = sm.add_constant(X)
+            model = sm.OLS(y,X).fit()
+            pval[col] = model.pvalues[col]
+    
+        min_pval = pval.min()
+        if min_pval < sl_enter: 
+            selected_variables.append(pval.idxmin())
+
+            while len(selected_variables) > 0:
+                selected_X = df[selected_variables]
+                selected_X = sm.add_constant(selected_X)
+                selected_pval = sm.OLS(y,selected_X).fit().pvalues[1:]
+                max_pval = selected_pval.max()
+                if max_pval >= sl_remove:
+                    remove_variable = selected_pval.idxmax()
+                    selected_variables.remove(remove_variable)
+                else:
+                    break
+            
+            step += 1
+            steps.append(step)
+            adj_r_squared = sm.OLS(y,sm.add_constant(df[selected_variables])).fit().rsquared_adj
+            adjusted_r_squared.append(adj_r_squared)
+            sv_per_step.append(selected_variables.copy())
+        else:
+            break
+    return selected_variables, steps, adjusted_r_squared, sv_per_step 
+  ```
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_stepwise_selection.png)
 
 We got 'ocean_<1H OCEAN', 'population', 'total_rooms', 'total_bedrooms', 'housing_median_age', 'households', 'ocean_INLAND', 'longitude', 'latitude' as our final variables. Selected variables are similar to those from forward selection and backward elimination. It also seems ocean vicinity, population, number of rooms are important variables to measure housing median price. 
@@ -57,6 +202,27 @@ Generally, about 9-10 variables are selected for regression and the most importa
 ## 1-2 Genetic Algorithm
 
 Conduct genetic algorithm with classification dataset (wine quality dataset). Compare the result with feature importance based on random forest. 
+Hyparparameters are belowed. 
+
+hyperparameter|value
+--------------|-----
+number of chromosomes| 50
+population size| 100      
+crossover mechanism:| 0.7 
+mutation rate:| 0.1
+
+
+GA consists with 5 steps 
+1. selection 
+2. crossover
+3. mutation
+4. replace previous population with new population
+5. evaluate new population and update best chromosome
+
+
+**selection**
+
+```
 
 
 ### GA Raw Result 
@@ -122,5 +288,3 @@ Conduct t-SNE wth classification dataset (wine quality dataset) with various per
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE20.png)
 
 We can capture the difference between various perplexity. When perplexity is in [2, 3 ,5], all of them are similar and they take the shape of a circle. Then, as perplexity increases, it generally changes to a shape of V. However, the optimal perplexity does not exist and also there is no meaning of the distance among clusters in t-SNE.At every pereplexity, no speical clusters were formed. It can be seen that the characteristics of each wine quality class are not clear. 
-
-
