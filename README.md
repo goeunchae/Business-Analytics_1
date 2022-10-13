@@ -371,13 +371,7 @@ Conduct PCA with classification dataset (wine quality dataset) with and without 
 
 
 ### Explained Variance 
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_percentage_of_explained_variance.png)
 
-
-Percentage of explained variance is decreasing until 5 dimensions and increasing after that. 
-The cumulative explained variance is higher than 60% at 4 dimensions. 
-
-### PCA 
 
 Calculate eigen values and eigen vectors of correlation.
 
@@ -403,12 +397,14 @@ plt.xlabel('Dimensions')
 #plt.show()
 ```
 
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_pca_results.png)
-
-Plotting PCA without sklearn.It is hard to find some features by classes. However, class 5, which marked as green, tend to be concentrated in the lower middle. 
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_percentage_of_explained_variance.png)
 
 
-### PCA with sklearn  
+Percentage of explained variance is decreasing until 5 dimensions and increasing after that. 
+The cumulative explained variance is higher than 60% at 4 dimensions. 
+
+### PCA 
+
 
 Drawing PCA with new principal components pc1 and pc2. 
 
@@ -443,6 +439,13 @@ def plot_scatter(pc1, pc2):
     plt.show()
  ```
  
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_pca_results.png)
+
+Plotting PCA without sklearn.It is hard to find some features by classes. However, class 5, which marked as green, tend to be concentrated in the lower middle. 
+
+
+### PCA with sklearn  
+
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_3_pca_sklearn.png)
 
 Plotting PCA with sklearn. Since it is also hard to find features, we can say this data (wine quality dataset) has few characteristics between groups. In addition, PCA without sklearn is well designed because the result is quite close to the above one. 
