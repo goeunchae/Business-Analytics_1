@@ -99,16 +99,27 @@ Plotting PCA with sklearn. Since it is also hard to find features, we can say th
 
 ## 1-4 Locally Linear Embedding (LLE) 
 
-Conduct LLE wth classification dataset (wine quality dataset) with various n_neighbors.
+Conduct LLE wth classification dataset (wine quality dataset) with various n_neighbors. The experiment was conducted by changing number of neighbors to 2, 3, 5, and 10. LLE maintains locality information unlike MDS, but it does not care about other things. Usually, LLE is sensitive with number of neighbors, but it is not in this dataset. 
 
 ### LLE
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_LLE_results.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_LLE_results2.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_LLE_results3.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_LLE_results5.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_LLE_results10.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_LLE_results20.png)
 
+At every case, LLE seems almost same. We could not find the difference between various n_neighbors. 
 
 ## 1-4 t-distributed Stochastic Neighbor Embedding (t-SNE)  
 
-Conduct t-SNE wth classification dataset (wine quality dataset) with variosu n_neighbors.
+Conduct t-SNE wth classification dataset (wine quality dataset) with various perplexity. Perplexity in t-SNE is a parameter controlling a trade-off between local and global structure of data. Perplexity is defined as 2^entropy and it has a uniform distribution. Thus, if data has high entropy, perplexity is also high. Lower perplexity considers more to local information. In contrast, higher perplexity puts more weights to global information, so it makes the probability values that all points can have similarities. 
 
 ### t-SNE
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results2.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results3.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results5.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results10.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results20.png)
+
+
 
