@@ -285,6 +285,49 @@ GA consists with 5 steps
         return population
 ```
 
+**select best chromosomes**
+
+```
+def __update_best_chromosome(
+            self, population: np.ndarray, population_scores: np.ndarray,
+            best_chromosome_index: int, i_gen: int):
+        # Initialize best_chromosome
+        if self.best_chromosome[0] is None and self.best_chromosome[1] is None:
+            self.best_chromosome = (
+                population[best_chromosome_index],
+                population_scores[best_chromosome_index],
+                i_gen)
+            self.threshold_times_convergence = 5
+        # Update if new is better
+        elif population_scores[best_chromosome_index] > \
+                self.best_chromosome[1]:
+            if i_gen >= 17:
+                self.threshold_times_convergence = int(np.ceil(0.3 * i_gen))
+            self.best_chromosome = (
+                population[best_chromosome_index],
+                population_scores[best_chromosome_index],
+                i_gen)
+            self.n_times_convergence = 0
+            print(
+                '# (BETTER) A better chromosome than the current one has '
+                f'been found ({self.best_chromosome[1]}).')
+        # If is smaller than self.threshold count it until convergence
+        elif abs(population_scores[best_chromosome_index] -
+                 self.best_chromosome[1]) <= self.threshold:
+            self.n_times_convergence = self.n_times_convergence + 1
+            print(
+                f'# Same scoring value found {self.n_times_convergence}'
+                f'/{self.threshold_times_convergence} times.')
+            if self.n_times_convergence == self.threshold_times_convergence:
+                self.convergence = True
+        else:
+            self.n_times_convergence = 0
+            print('# (WORST) No better chromosome than the current one has '
+                  f'been found ({population_scores[best_chromosome_index]}).')
+        print(f'# Current best chromosome: {self.best_chromosome}')
+```
+
+
 ### GA Raw Result 
 ![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_2_GA_results.PNG)
 
