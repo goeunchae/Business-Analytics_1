@@ -115,11 +115,11 @@ At every case, LLE seems almost same. We could not find the difference between v
 Conduct t-SNE wth classification dataset (wine quality dataset) with various perplexity. Perplexity in t-SNE is a parameter controlling a trade-off between local and global structure of data. Perplexity is defined as 2^entropy and it has a uniform distribution. Thus, if data has high entropy, perplexity is also high. Lower perplexity considers more to local information. In contrast, higher perplexity puts more weights to global information, so it makes the probability values that all points can have similarities. 
 
 ### t-SNE
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results2.png)
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results3.png)
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results5.png)
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results10.png)
-![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE_results20.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE2.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE3.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE5.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE10.png)
+![](https://github.com/goeunchae/Business-Analytics_1/blob/main/pics/1_4_t-SNE20.png)
 
 sd
 
